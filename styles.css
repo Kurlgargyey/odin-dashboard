@@ -1,4 +1,101 @@
 * {
  margin: 0;
  padding: 0;
+ /*border: 1px solid red;*/
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+li {
+ list-style: none;
+}
+
+.wrapper {
+ display: grid;
+ grid-template: 1fr 5fr / 1fr 3fr;
+ grid-template-areas: 
+ "sidebar header"
+ "sidebar main-content";
+ height: calc(100vh - 9px);
+}
+
+.sidebar {
+ grid-area: sidebar;
+ display: flex;
+ flex-direction: column;
+ gap: 40px;
+
+ color: white;
+ background-color: rgb(79, 154, 230);
+ padding: 20px;
+ 
+}
+
+.logo {
+ font-size: 40px;
+ font-weight: bold;
+}
+
+.nav {
+}
+
+.header {
+ grid-area: header;
+ display: grid;
+ grid-template: 1fr 1fr / 3fr 1fr;
+
+ padding: 20px;
+}
+
+.main-content {
+ grid-area: main-content;
+ display: grid;
+ grid-template: 1fr 1fr / 3fr 1fr;
+ grid-template-areas: 
+ "projects announcements"
+ "projects trending";
+
+ gap: 20px;
+
+ background-color: rgb(226, 235, 243);
+ padding: 20px;
+}
+
+.main-content > * > h1 {
+ margin-bottom: 15px;
+ font-size: 30px;
+}
+
+.projects {
+ grid-area: projects;
+}
+
+.cards {
+ display: grid;
+ grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
+ gap: 30px;
+}
+
+.card {
+ background-color: white;
+ padding: 10px;
+ height: 200px;
+}
+
+.announcements {
+ grid-area: announcements;
+}
+
+.announcements-box {
+ background-color: white;
+ padding: 30px;
+}
+
+.trending {
+ grid-area: trending;
+}
+
+.trending-box {
+ background-color: white;
+ padding: 20px;
 }
