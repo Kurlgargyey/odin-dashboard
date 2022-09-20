@@ -1,6 +1,7 @@
 :root {
  --sidebar-bg: rgb(79, 154, 230);
  --sidebar-text: white;
+ --soft-sidebar-text: rgb(236, 236, 236);
  --main-bg: rgb(226, 235, 243);
  --shadows: rgba(192, 192, 192, 0.199);
  --soft-text: rgb(107, 107, 107);
@@ -14,6 +15,11 @@
  /*border: 1px solid red;*/
  box-sizing: border-box;
  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+ text-decoration: none;
+ color: inherit;
 }
 
 li {
@@ -43,16 +49,20 @@ img {
  color: var(--sidebar-text);
  background-color: var(--sidebar-bg);
  padding: 20px;
- 
 }
 
-.sidebar > * {
+.sidebar * {
  font-weight: bold;
 }
 
 .sidebar svg {
  height: 1em;
  width: auto;
+}
+
+.sidebar a:hover {
+ color: var(--soft-sidebar-text);
+ 
 }
 
 .logo {
@@ -66,8 +76,8 @@ img {
  font-size: 22px;
 }
 
-.nav li,
-.menu li {
+.nav a,
+.menu a {
  display: flex;
  gap: 10px;
  align-items: center;
@@ -122,32 +132,42 @@ img {
  justify-content: flex-end;
  align-items: center;
  gap: 20px;
+ font-size: 1rem;
 }
 
 .user-info button {
+ display: flex;
  position: relative;
  border: none;
+ border-radius: 5px;
  background: none;
- margin: auto 0;
- height: 30px;
- width: 30px;
+ padding: 5px;
 }
 
 .user-info svg {
- position: absolute;
- top: 3px;
- left: 3px;
  fill: black;
 }
 
-.user-info svg:hover {
- fill: var(--soft-accents);
+.user-info button:hover {
+ background-color: var(--main-bg);
 }
 
-.user {
+.user a {
  display: flex;
  align-items: center;
- gap: 5px;
+ gap: 0.55em;
+ font-size: inherit;
+ padding: 5px;
+ border-radius: 5px;
+}
+
+.user a:hover {
+ background-color: var(--main-bg);
+}
+
+.user img {
+ height: 2em;
+ width: auto;
 }
 
 .header-buttons {
@@ -171,16 +191,25 @@ img {
  display: flex;
  align-items: center;
  gap: 10px;
+ font-size: 1.2rem;
+}
+
+.greeting img {
+ height: 3em;
+ width: auto;
 }
 
 .greeting-text {
  display: flex;
  flex-direction: column;
- font-size: 1.2rem;
 }
 
 .greeting-text > span {
  font-size: 0.7em;
+}
+
+.header-buttons button:hover {
+ color: var(--soft-sidebar-text);
 }
 
 .main-content {
@@ -242,6 +271,20 @@ img {
 .card > .card-buttons {
  display: flex;
  align-self: flex-end;
+}
+
+.card button {
+ background: none;
+ border: none;
+ height: 1.7em;
+ width: 1.7em;
+ margin: 5px 15px 0px 10px;
+}
+
+.card svg {
+ height: 1.5em;
+ width: 1.5em;
+ fill: black;
 }
 
 .announcements {
