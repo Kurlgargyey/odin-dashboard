@@ -102,22 +102,24 @@ img {
 
 .search {
  position: relative;
+ z-index: 2;
 }
 
 .search,
 #search {
  width: 100%;
- font-size: 24px;
+ font-size: 18px;
 }
 
 .search svg {
  position: absolute;
- height: 1em;
+ height: 80%;
  width: auto;
  fill: var(--soft-accents);
  pointer-events: none;
- top: 3px;
- left: 3px;
+ top: 12%;
+ left: 1%;
+ z-index: 2;
 }
 
 #search {
@@ -125,6 +127,13 @@ img {
  border-radius: 5px;
  background-color: var(--main-bg);
  font-size: 1em;
+ padding: 4px;
+ appearance: none;
+ z-index: 1;
+}
+
+#search:focus ~ svg {
+ height: 0;
 }
 
 .user-info {
