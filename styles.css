@@ -1,9 +1,19 @@
+:root {
+ --sidebar-bg: rgb(79, 154, 230);
+ --sidebar-text: white;
+ --main-bg: rgb(226, 235, 243);
+ --shadows: rgba(192, 192, 192, 0.199);
+ --soft-text: rgb(107, 107, 107);
+ --soft-accents: rgb(107, 107, 107, 0.35);
+ --card-accents: orange;
+}
+
 * {
  margin: 0;
  padding: 0;
  /*border: 1px solid red;*/
  box-sizing: border-box;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 li {
@@ -28,20 +38,43 @@ img {
  grid-area: sidebar;
  display: flex;
  flex-direction: column;
- gap: 40px;
+ gap: 50px;
 
- color: white;
- background-color: rgb(79, 154, 230);
+ color: var(--sidebar-text);
+ background-color: var(--sidebar-bg);
  padding: 20px;
  
 }
 
-.logo {
- font-size: 40px;
+.sidebar > * {
  font-weight: bold;
 }
 
-.nav {
+.sidebar svg {
+ height: 1em;
+ width: auto;
+}
+
+.logo {
+ font-size: 30px;
+ display: flex;
+ align-items: center;
+}
+
+.nav,
+.menu {
+ font-size: 22px;
+}
+
+.nav li,
+.menu li {
+ display: flex;
+ gap: 10px;
+ align-items: center;
+}
+
+.sidebar li:not(:last-child) {
+ margin-bottom: 15px;
 }
 
 .header {
@@ -50,13 +83,71 @@ img {
  align-items: center;
  grid-template: 1fr 1fr / 1.5fr 1fr;
  gap: 10px;
+ position: relative;
 
  padding: 20px;
+
+ box-shadow: 0px 3px  var(--shadows);
+}
+
+.search {
+ position: relative;
+}
+
+.search,
+#search {
+ width: 100%;
+ font-size: 24px;
+}
+
+.search svg {
+ position: absolute;
+ height: 1em;
+ width: auto;
+ fill: var(--soft-accents);
+ pointer-events: none;
+ top: 3px;
+ left: 3px;
+}
+
+#search {
+ border: none;
+ border-radius: 5px;
+ background-color: var(--main-bg);
+ font-size: 1em;
 }
 
 .user-info {
  display: flex;
  justify-content: flex-end;
+ align-items: center;
+ gap: 20px;
+}
+
+.user-info button {
+ position: relative;
+ border: none;
+ background: none;
+ margin: auto 0;
+ height: 30px;
+ width: 30px;
+}
+
+.user-info svg {
+ position: absolute;
+ top: 3px;
+ left: 3px;
+ fill: black;
+}
+
+.user-info svg:hover {
+ fill: var(--soft-accents);
+}
+
+.user {
+ display: flex;
+ align-items: center;
+ gap: 5px;
 }
 
 .header-buttons {
@@ -66,11 +157,11 @@ img {
 }
 
 .header-buttons > * {
- background-color: rgb(79, 154, 230);
+ background-color: var(--sidebar-bg);
  border-radius: 14px;
  border: 0px;
 
- color: white;
+ color: var(--sidebar-text);
  padding: 7px 15px;
  font-size: 12px;
  font-weight: bold;
@@ -79,6 +170,17 @@ img {
 .greeting {
  display: flex;
  align-items: center;
+ gap: 10px;
+}
+
+.greeting-text {
+ display: flex;
+ flex-direction: column;
+ font-size: 1.2rem;
+}
+
+.greeting-text > span {
+ font-size: 0.7em;
 }
 
 .main-content {
@@ -91,13 +193,19 @@ img {
 
  gap: 20px;
 
- background-color: rgb(226, 235, 243);
+ background-color: var(--main-bg);
  padding: 20px;
 }
 
 .main-content > * > h1 {
  margin-bottom: 15px;
  font-size: 30px;
+}
+
+.content {
+ background-color: var(--sidebar-text);
+ box-shadow: 0px 3px  var(--shadows);
+ border-radius: 5px;
 }
 
 .projects {
@@ -114,10 +222,21 @@ img {
  display: flex;
  flex-direction: column;
  justify-content: space-between;
+ position: relative;
 
- background-color: white;
- padding: 10px;
- height: 200px;
+ padding: 30px 10px 30px 30px;
+ height: min(15rem , 200px);
+}
+
+.card::before {
+ content: '';
+ position: absolute;
+ width: 10px;
+ height: 100%;
+ background-color: var(--card-accents);
+ left: 0px;
+ top: 0px;
+ border-radius: 5px 0px 0px 5px;
 }
 
 .card > .card-buttons {
@@ -130,16 +249,27 @@ img {
 }
 
 .announcements-box {
- background-color: white;
+ display: grid;
+ gap: 40px;
+
  padding: 30px;
 }
 
-.announcements-box > * {
- margin-bottom: 25px;
+.announcement h4 {
+ margin-bottom: 5px;
 }
 
-.announcement:last-child {
- margin-bottom: 0;
+.announcements-box > div:not(:last-child) {
+ position: relative;
+}
+
+.announcements-box > div:not(:last-child)::after {
+ content: '';
+ position: absolute;
+ background-color: var(--soft-accents);
+ height: 2px;
+ width: 100%;
+ top: calc(100% + 20px);
 }
 
 .trending {
@@ -147,6 +277,32 @@ img {
 }
 
 .trending-box {
- background-color: white;
- padding: 20px;
+ display: grid;
+ gap: 20px;
+ padding: 30px;
+}
+
+.trending-user {
+ display: grid;
+ grid-template-columns: 1fr 4fr;
+ grid-auto-flow: column;
+ align-items: center;
+}
+
+.trending-user-info {
+ display: flex;
+ flex-direction: column;
+}
+
+.content p,
+.content span {
+ color: var(--soft-text);
+}
+
+.content p {
+ font-size: 0.95em;
+}
+
+.content span {
+ font-size: 0.8em;
 }
