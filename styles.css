@@ -197,7 +197,7 @@ img {
 
  color: var(--sidebar-text);
  padding: 7px 15px;
- font-size: 12px;
+ font-size: 14px;
  font-weight: bold;
 }
 
@@ -267,7 +267,7 @@ img {
  justify-content: space-between;
  position: relative;
 
- padding: 30px 10px 30px 30px;
+ padding: 20px 10px 20px 30px;
  height: min(15rem , 200px);
 }
 
