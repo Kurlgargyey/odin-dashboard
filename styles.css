@@ -1,12 +1,15 @@
 :root {
- --sidebar-bg: rgb(79, 154, 230);
- --sidebar-text: white;
- --soft-sidebar-text: rgb(236, 236, 236);
- --main-bg: rgb(226, 235, 243);
- --shadows: rgba(192, 192, 192, 0.199);
- --soft-text: rgb(107, 107, 107);
- --soft-accents: rgb(107, 107, 107, 0.35);
- --card-accents: orange;
+ --sidebar-bg: #991b1b;
+ --dark-sidebar-bg: #7f1d1d;
+ --sidebar-text: #f4f4f5;
+ --soft-sidebar-text: #d4d4d8;
+ --main-bg: #e2e8f0;
+ --shadows: #a3a3a334;
+ --soft-text: #57534e;
+ --soft-accents: #57534e54;
+ --card-accents: #d97706;
+ --main-hover: #52525b;
+ --main-hover-bg: #e2e8f073;
 }
 
 * {
@@ -62,13 +65,14 @@ img {
 
 .sidebar a:hover {
  color: var(--soft-sidebar-text);
- 
+ background-color: var(--dark-sidebar-bg);
 }
 
 .logo {
  font-size: 30px;
  display: flex;
  align-items: center;
+ pointer-events: none;
 }
 
 .nav,
@@ -79,8 +83,11 @@ img {
 .nav a,
 .menu a {
  display: flex;
- gap: 10px;
+ column-gap: 10px;
  align-items: center;
+
+ padding: 5px;
+ border-radius: 5px;
 }
 
 .sidebar li:not(:last-child) {
@@ -102,13 +109,12 @@ img {
 
 .search {
  position: relative;
- z-index: 2;
 }
 
 .search,
 #search {
  width: 100%;
- font-size: 18px;
+ font-size: 24px;
 }
 
 .search svg {
@@ -118,18 +124,15 @@ img {
  fill: var(--soft-accents);
  pointer-events: none;
  top: 12%;
- left: 1%;
- z-index: 2;
+ left: 2%;
 }
 
 #search {
  border: none;
- border-radius: 5px;
+ border-radius: 25px;
  background-color: var(--main-bg);
  font-size: 1em;
- padding: 4px;
- appearance: none;
- z-index: 1;
+ padding: 9px 19px;
 }
 
 #search:focus ~ svg {
@@ -142,6 +145,7 @@ img {
  align-items: center;
  gap: 20px;
  font-size: 1rem;
+ font-weight: bold;
 }
 
 .user-info button {
@@ -150,7 +154,7 @@ img {
  border: none;
  border-radius: 5px;
  background: none;
- padding: 5px;
+ padding: 9px;
 }
 
 .user-info svg {
@@ -158,7 +162,7 @@ img {
 }
 
 .user-info button:hover {
- background-color: var(--main-bg);
+ background-color: var(--main-hover-bg);
 }
 
 .user a {
@@ -171,7 +175,7 @@ img {
 }
 
 .user a:hover {
- background-color: var(--main-bg);
+ background-color: var(--main-hover-bg);
 }
 
 .user img {
@@ -201,6 +205,8 @@ img {
  align-items: center;
  gap: 10px;
  font-size: 1.2rem;
+ font-weight: bold;
+ pointer-events: none;
 }
 
 .greeting img {
@@ -221,6 +227,10 @@ img {
  color: var(--soft-sidebar-text);
 }
 
+.header-buttons button:active {
+ background-color: var(--dark-sidebar-bg);
+}
+
 .main-content {
  grid-area: main-content;
  display: grid;
@@ -232,9 +242,10 @@ img {
  padding: 20px;
 }
 
-.main-content > * > h1 {
+.main-content h1 {
  margin-bottom: 15px;
  font-size: 30px;
+ pointer-events: none;
 }
 
 .content {
@@ -259,6 +270,10 @@ img {
  height: min(15rem , 200px);
 }
 
+.card h3 {
+ cursor: pointer;
+}
+
 .card::before {
  content: '';
  position: absolute;
@@ -281,6 +296,15 @@ img {
  height: 1.7em;
  width: 1.7em;
  margin: 5px 15px 0px 10px;
+}
+
+.card button:hover > svg {
+ fill: var(--main-hover);
+}
+
+.card button:active > svg {
+ zoom: 90%;
+ fill: black;
 }
 
 .card svg {
@@ -309,6 +333,7 @@ img {
 
 .announcement h4 {
  margin-bottom: 5px;
+ cursor: pointer;
 }
 
 .announcements-box > div:not(:last-child) {
@@ -330,11 +355,23 @@ img {
  padding: 30px;
 }
 
-.trending-user {
+.trending-user a {
  display: grid;
  grid-template-columns: 1fr 4fr;
  grid-auto-flow: column;
  align-items: center;
+ padding: 5px;
+ border-radius: 5px;
+}
+
+.trending-user img {
+ height: 2em;
+ width: auto;
+ margin-right: 15px;
+}
+
+.trending-user:hover {
+ background-color: var(--main-hover-bg);
 }
 
 .trending-user-info {
@@ -345,6 +382,7 @@ img {
 .content p,
 .content span {
  color: var(--soft-text);
+ pointer-events: none;
 }
 
 .content p {
