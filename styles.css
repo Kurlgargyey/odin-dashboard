@@ -262,9 +262,10 @@ img {
 }
 
 .card {
- display: flex;
- flex-direction: column;
- justify-content: space-between;
+ display: grid;
+ grid-template-rows: auto 5.5em auto;
+ gap: 10px;
+ 
  position: relative;
 
  padding: 20px 10px 20px 30px;
@@ -287,8 +288,8 @@ img {
 }
 
 .card > .card-buttons {
- display: flex;
- align-self: flex-end;
+ align-self: end;
+ justify-self: end;
 }
 
 .card button {
@@ -384,6 +385,11 @@ img {
 .content span {
  color: var(--soft-text);
  pointer-events: none;
+ display: -webkit-box;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ -webkit-line-clamp: 5;
+ -webkit-box-orient: vertical;
 }
 
 .content p {
